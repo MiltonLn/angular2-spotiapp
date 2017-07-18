@@ -1,4 +1,8 @@
-# Angular2Spotiapp
+# Angular2 Spotiapp
+
+A simple Angular2 Spotify client using the Spotify API and Bootstrap 4
+
+![](http://i.imgur.com/nrXX2ab.png)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.1.
 
