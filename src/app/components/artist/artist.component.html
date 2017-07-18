@@ -1,0 +1,63 @@
+<div class="container top-30 animated fadeIn fast" *ngIf="artist">
+
+  <div class="row">
+
+    <div class="col-md-3 text-center">
+      <img [src]="artist.images | noPicture" class="img-fluid img-circle">
+      <br>
+    </div>
+
+    <div class="col-md-9 text-center">
+      <h3>{{ artist.name }} <small>{{ artist.popularity }}</small></h3>
+      <hr>
+      <br>
+      <a [routerLink]="['/search']" class="btn btn-outline-danger"> Regresar</a>
+      <a [href]="artist.external_urls?.spotify" target="_blank" class="btn btn-outline-success"> Abrir en Spotify</a>
+    </div>
+
+  </div>
+
+  <div class="container top-30" *ngIf="tracks">
+
+    <h3>{{ artist.name }} Top Tracks</h3>
+    <hr>
+
+    <div class="row">
+
+      <div class="col-md-12">
+
+        <div class="table-responsive">
+          <table class="table table-inverse table-hover">
+            <thead>
+              <th> # </th>
+              <th> Picture </th>
+              <th> Song </th>
+              <th> Popularity </th>
+              <th> Preview </th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let track of tracks; let i = index">
+                <td>{{ i }}</td>
+                <td>
+                  <img [src]="track.album?.images | noPicture" class="img-fluid img-50">
+                </td>
+                <td> {{ track.name }}</td>
+                <td> {{ track.popularity }}</td>
+                <td>
+                  <iframe [src]="track.uri | domseguro:'https://open.spotify.com/embed?uri='"
+                    width="300" height="80" frameborder="0" allowtransparency="true">
+                  </iframe>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+</div>
